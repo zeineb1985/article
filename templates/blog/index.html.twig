@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog!{% endblock %}
+{% block body %}
+    {% include'topBar/topBar.html.twig' %}
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+
+
+        <div class="card mt-4">
+
+            <div class="card-header">
+                Liste des articles
+            </div>
+            <div class="card-body">
+
+                <h2 class="mb-2">Liste des articles</h2>
+
+
+                <a href="{{ path('create-article') }}" class="btn btn-success btn-md mb-4" role="button"> Ajouter un
+                    article</a>
+                <table id="dtBasicExample" class="table table-stripped" width="100%">
+
+
+                    <thead>
+                    <tr>
+                        <th class="th-sm">id
+                        </th>
+                        <th class="th-sm">Title
+                        </th>
+                        <th class="th-sm">Content
+                        </th>
+                        <th class="th-sm">Date
+                        </th>
+                        <th class="th-md">Action
+                        </th>
+
+
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+
+
+                    {% for article in articles %}
+                        <tr>
+
+
+                            <td>{{ article.id }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.content }}</td>
+                            <td>{{ article.date |date("m/d/Y") }}</td>
+
+                            <td><a href=""><i class="far fa-edit mr-2" style="color:green;"
+                                    ></i></a>
+
+                                <a href=""><i
+                                            class="far fa-trash-alt mr-2"
+                                            style="color:red"></i></a>
+                                <a href=""><i
+                                            class="far fa-eye mr-2"
+                                            style="color:blue"></i></a>
+                            </td>
+
+                        </tr>
+
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

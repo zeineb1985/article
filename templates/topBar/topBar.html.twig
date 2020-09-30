@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar  sticky-top">
+    <a class="navbar-brand" href="{{ path('blog') }}">Blog </a>
+    <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+        <a href="#" class="btn-user dropdown-toggle media align-items-center"
+           data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+            <img class="mr-2"
+                 src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png"
+                 width="40"
+                 height="40" alt="avatar">
+            {% if app.user.username is defined %}
+
+                Bonjour cher {{ app.user.username }}
+
+            {% else %}
+
+                Bonjour cher visiteur
+
+            {% endif %}
+
+
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+            <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
+        </ul>
+    </div>
+</nav>
